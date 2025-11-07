@@ -1,10 +1,17 @@
-void save(ST *ptr)
+void save(ST **ptr)
 {
-    FILE *fp= fopen("student.txt","a+");
+    ST*temp=*ptr;
+    FILE *fd= fopen("Student_Record.txt","a+");
 
-    while(ptr!=0)
+    fseek(fd,0,SEEK_END);
+    if(ftell(fd) == 0)
+        fprintf(fd,"RollNo\t\t\tName\t\t\tPercentage\n");
+
+    while(temp!=0)
     {
-        fprintf(fp,"%d\t\t\t%s\t\t\t%f\n",ptr->rollno,ptr->name,ptr->percentage);
-        ptr=ptr->next;
+        fprintf(fd,"%d\t\t\t%s\t\t\t%f\n",temp->rollno,temp->name,temp->percentage);
+        temp=temp->next;
+        while()
     }
+    fclose(fd);
 }
