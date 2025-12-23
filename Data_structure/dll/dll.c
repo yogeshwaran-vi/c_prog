@@ -31,6 +31,29 @@ void add_end(struct st**ptr)
 		last->next=temp;
 	}
 }
+void delete_pos(struct st **ptr,int n)
+{
+	struct st *prev,*temp;
+	temp=*ptr;
+
+	while(temp!=0)
+	{
+		if(temp->roll==n)
+		{
+			if(temp==*ptr)
+				*ptr=temp->next;
+			else
+				prev->next=temp->next;
+
+			free(temp);
+		}
+		else
+		{
+			prev=temp;
+			temp=temp->next;
+		}
+	}
+}
 void display(struct st*ptr)
 {
 	while(ptr!=0)
