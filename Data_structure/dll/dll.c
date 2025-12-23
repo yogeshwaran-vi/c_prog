@@ -39,22 +39,6 @@ void display(struct st*ptr)
 		ptr=ptr->next;
 	}
 }
-int x;
-void delete_particular(struct st *ptr)
-{
-	printf("Enter the roll no to delete the data: ");
-	scanf("%d",&x);
-	while(ptr!=0)
-	{
-		if(ptr->roll==x)
-		{
-			free(ptr);
-			ptr=NULL;	
-		}
-		else
-			ptr=ptr->next;
-	}
-}
 int main()
 {
 	struct st *head=0;
